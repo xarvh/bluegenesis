@@ -2,6 +2,7 @@ module App exposing (..)
 
 import AnimationFrame
 import Html exposing (Html)
+import Scene
 import Time exposing (Time)
 import WebGL exposing (Renderable)
 
@@ -16,11 +17,6 @@ type alias Model =
     }
 
 
-scene : Model -> List Renderable
-scene model =
-    []
-
-
 type Msg
     = AnimationFrameTriggers Time
 
@@ -28,7 +24,7 @@ type Msg
 view : Model -> Html Msg
 view model =
     model
-        |> scene
+        |> Scene.renderables
         |> WebGL.toHtml []
 
 
